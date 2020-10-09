@@ -6,7 +6,7 @@ describe("Ticker Testing - With No Range Limiting", () => {
         let controller = new TickerController()
         let initialValue = 0
         let finalValue = controller.increment(initialValue)
-        let expectedValue = initialValue + 1
+        let expectedValue = initialValue + 2
         expect(finalValue).toEqual(expectedValue);
     });
 
