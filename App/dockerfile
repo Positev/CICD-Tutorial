@@ -15,8 +15,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 # add app
 WORKDIR /app/ticker
 
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install 
+RUN npm install react-scripts@3.4.1 -g 
 
 EXPOSE 3000:3000
 
