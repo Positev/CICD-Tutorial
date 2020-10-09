@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - run: npm install
+    - run: yarn --cwd ./App/ticker
     - run: npm run build --if-present
     - run: npm test
       env:
