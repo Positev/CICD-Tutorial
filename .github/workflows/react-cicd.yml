@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and test React App
 
 on:
   push:
@@ -10,9 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
-    env:
-      working-directory: ./App/ticker
+    runs-on: ubuntu-latest=
     steps:
     
     - uses: actions/checkout@v2
@@ -21,8 +19,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - run: yarn --cwd ./App/ticker
-    - run: yarn --cwd ./App/ticker test
-    - run: yarn --cwd ./App/ticker run build --if-present
+    - run: yarn --cwd ./App/ticker            #install dependencies, point to package.json
+    - run: yarn --cwd ./App/ticker test       #Run unit test
+    - run: yarn --cwd ./App/ticker run build --if-present #Build
       env:
         CI: true
