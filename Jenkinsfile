@@ -1,15 +1,18 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine' 
-            args '-p 3000:3000' 
+            image 'node' 
+            args '-p 10083:3000' 
         }
     }
     stages {
-        stage('Build') { 
+        stage('CI') { 
             steps {
-                sh 'npm install' 
+                sh 'yarn --cwd ./App/ticker' 
+                sh 'CI=true yarn --cwd ./App/ticker test' 
+                sh 'yarn --cwd ./App/ticker run build --if-present' 
             }
         }
+
     }
 }
